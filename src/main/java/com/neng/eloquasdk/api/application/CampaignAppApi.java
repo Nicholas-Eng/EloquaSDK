@@ -3,6 +3,7 @@ package com.neng.eloquasdk.api.application;
 import com.neng.eloquasdk.constant.Depth;
 import com.neng.eloquasdk.exception.BadRequestException;
 import com.neng.eloquasdk.model.Campaign;
+import com.neng.eloquasdk.model.EloquaAppList;
 
 import reactor.core.publisher.Mono;
 
@@ -238,4 +239,28 @@ public interface CampaignAppApi {
     Mono<Campaign> retrieveAsync(Integer id) throws BadRequestException;
 
     Mono<Campaign> retrieveAsync(Integer id, Depth depth) throws BadRequestException;
+
+    EloquaAppList<Campaign> retrieveList() throws BadRequestException;
+
+    EloquaAppList<Campaign> retrieveList(Integer count) throws BadRequestException;
+
+    EloquaAppList<Campaign> retrieveList(Integer count, Integer page) throws BadRequestException;
+
+    EloquaAppList<Campaign> retrieveList(Integer count, Depth depth, Integer page) throws BadRequestException;
+
+    EloquaAppList<Campaign> retrieveList(Integer count, Depth depth, Integer lastUpdatedAt, String orderBy, Integer page, String search) throws BadRequestException;
+
+    Mono<EloquaAppList<Campaign>> retrieveListAsync() throws BadRequestException;
+
+    Mono<EloquaAppList<Campaign>> retrieveListAsync(Integer count) throws BadRequestException;
+
+    Mono<EloquaAppList<Campaign>> retrieretrieveListAsyncveList(Integer count, Integer page) throws BadRequestException;
+
+    Mono<EloquaAppList<Campaign>> retrieveListAsync(Integer count, Depth depth, Integer page) throws BadRequestException;
+
+    Mono<EloquaAppList<Campaign>> retrieveListAsync(Integer count, Depth depth, Integer lastUpdatedAt, String orderBy, Integer page, String search) throws BadRequestException;
+
+    Campaign update(String id) throws BadRequestException;
+
+    Mono<Campaign> updateAsync(String id) throws BadRequestException;
 }

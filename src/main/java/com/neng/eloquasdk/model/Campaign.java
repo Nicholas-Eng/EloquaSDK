@@ -46,14 +46,16 @@ public class Campaign {
     @JsonProperty
     private String description;
 
+    // TODO
     // @JsonProperty
-    // private List<Something> elements;
+    // private List<T> elements;
 
     @JsonProperty
     private String endAt;
 
+    // TODO
     // @JsonProperty
-    // private List<Something> fieldValues;
+    // private List<T> fieldValues;
 
     @JsonProperty
     private String firstActivation;
@@ -85,8 +87,9 @@ public class Campaign {
     @JsonProperty
     private String name;
 
+    // TODO
     // @JsonProperty
-    // private List<Something> permissions;
+    // private List<T> permissions;
 
     @JsonProperty
     private String product;
