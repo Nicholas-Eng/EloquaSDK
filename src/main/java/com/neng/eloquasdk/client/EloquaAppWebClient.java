@@ -29,16 +29,26 @@ public class EloquaAppWebClient extends EloquaWebClient {
         private EloquaCredentials credentials;
 
         public EloquaAppWebClient build() {
-            this.webClient = WebClient.builder()
-                .defaultHeader(HttpHeaders.AUTHORIZATION, credentials.basicAuth())
-                .build();
+
+            if(webClient == null) {
+                this.webClient = WebClient.builder()
+                    .baseUrl(credentials.getBaseUrl())
+                    .defaultHeader(HttpHeaders.AUTHORIZATION, credentials.basicAuth())
+                    .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
+                    .build();
+            }
+            
             return new EloquaAppWebClient(this);
         }
 
-        public Builder credentials(EloquaCredentials credentials) {
+        public Builder webClient(WebClient webClient) {
+            Assert.notNull(webClient, "WebClient cannot be null");         
+            this.webClient = webClient;
+            return this;
+        }
 
-            Assert.notNull(credentials, "Credentials cannot be null");
-            
+        public Builder credentials(EloquaCredentials credentials) {
+            Assert.notNull(credentials, "Credentials cannot be null");         
             this.credentials = credentials;
             return this;
         }
